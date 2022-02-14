@@ -1,0 +1,19 @@
+
+.ipynb_checkpoints/sam exp-checkpoint.ipynb
+__pycache__/sam.cpython-38.pyc
+__pycache__/smooth_cross_entropy.cpython-38.pyc
+__pycache__/wide_res_net.cpython-38.pyc
+data/MNIST/raw/t10k-images-idx3-ubyte
+data/MNIST/raw/t10k-images-idx3-ubyte.gz
+data/MNIST/raw/t10k-labels-idx1-ubyte
+data/MNIST/raw/t10k-labels-idx1-ubyte.gz
+data/MNIST/raw/train-images-idx3-ubyte
+data/MNIST/raw/train-images-idx3-ubyte.gz
+data/MNIST/raw/train-labels-idx1-ubyte
+data/MNIST/raw/train-labels-idx1-ubyte.gz
+utility/__pycache__/bypass_bn.cpython-38.pyc
+utility/__pycache__/cutout.cpython-38.pyc
+utility/__pycache__/initialize.cpython-38.pyc
+utility/__pycache__/loading_bar.cpython-38.pyc
+utility/__pycache__/step_lr.cpython-38.pyc
+utility/__pycache__/log.cpython-38.pyc
