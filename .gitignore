@@ -17,3 +17,11 @@ utility/__pycache__/initialize.cpython-38.pyc
 utility/__pycache__/loading_bar.cpython-38.pyc
 utility/__pycache__/step_lr.cpython-38.pyc
 utility/__pycache__/log.cpython-38.pyc
+data/cifar-10-batches-py/batches.meta
+data/cifar-10-batches-py/data_batch_1
+data/cifar-10-batches-py/data_batch_2
+data/cifar-10-batches-py/data_batch_3
+data/cifar-10-batches-py/data_batch_4
+data/cifar-10-batches-py/data_batch_5
+data/cifar-10-batches-py/test_batch
+data/cifar-10-python.tar.gz
