@@ -12,15 +12,15 @@ class SAM(torch.optim.Optimizer):
         self.param_groups = self.base_optimizer.param_groups
 
     @torch.no_grad()
-    def first_step(self, zero_grad=False):
-        grad_norm = self._grad_norm()
+    def first_step(self, zero_grad=False): #epsilon을 구해서 w+epsilon으로 이동: W_adv로 갔다
+        grad_norm = self._grad_norm()#params에 있는 애들 norm
         for group in self.param_groups:
-            scale = group["rho"] / (grad_norm + 1e-12)
+            scale = group["rho"] / (grad_norm + 1e-12) #0으로 나누는거 방지하려고, 일단 scale은 rho/norm 
 
             for p in group["params"]:
                 if p.grad is None: continue
                 self.state[p]["old_p"] = p.data.clone()
-                e_w = (torch.pow(p, 2) if group["adaptive"] else 1.0) * p.grad * scale.to(p)
+                e_w = (torch.pow(p, 2) if group["adaptive"] else 1.0) * p.grad * scale.to(p) #regularization term인듯?
                 p.add_(e_w)  # climb to the local maximum "w + e(w)"
 
         if zero_grad: self.zero_grad()
@@ -48,7 +48,7 @@ class SAM(torch.optim.Optimizer):
     def _grad_norm(self):
         shared_device = self.param_groups[0]["params"][0].device  # put everything on the same device, in case of model parallelism
         wwww = []
-        wwww.append([((torch.abs(p) if group["adaptive"] else 1.0) * p.grad).norm(p=2).cpu()#.to(shared_device)
+        wwww.append([((torch.abs(p) if group["adaptive"] else 1.0) * p.grad).norm(p=2).to(shared_device)
                         for group in self.param_groups for p in group["params"]
                         if p.grad is not None])
         norm = torch.norm(torch.from_numpy(np.array(wwww)).to(shared_device), p=2)
