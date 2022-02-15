@@ -1,6 +1,7 @@
 # sharpness_aware_minimization
+https://arxiv.org/pdf/2010.01412.pdf 을 구현
 
-코드는 https://github.com/davda54/sam를 참고했음.
+코드는 https://github.com/davda54/sam를 참고했음. official code https://github.com/google-research/sam 
 
 Main idea:
 
